@@ -26,20 +26,37 @@
 	    var pointofsalecountry = 'MX'// $('#pointofsalecountryTxt').val().toUpperCase()
        
 
-        //  origin = 'MEX'
-    	 // destination = 'LAX'
-    	//  departuredate = '2015-10-10'
-    	 // returndate = '2015-10-11'
-    	  //passengercount = '1'
-    	  //pointofsalecountry = 'MX'
+          origin = 'MEX'
+    	  destination = 'LAX'
+    	  departuredate = '2015-10-10'
+    	  returndate = '2015-10-11'
+    	  passengercount = '1'
+    	  pointofsalecountry = 'MX'
 
     	var xhr = new XMLHttpRequest();
-		xhr.open('GET', 'https://api.test.sabre.com/v1/shop/flights?origin='+origin+'&destination='+destination+'&departuredate='+departuredate+'&returndate='+returndate+'&onlineitinerariesonly=N&limit='+'2'+'&offset='+'1'+'&eticketsonly='+'N'+'&sortby=totalfare&order=asc&sortby2=departuretime&order2=asc&pointofsalecountry='+pointofsalecountry+'&passengercount='+passengercount+'');
+		xhr.open('GET', 'https://api.test.sabre.com/v1/shop/flights?origin='+origin+'&destination='+destination+'&departuredate='+departuredate+'&returndate='+returndate+'&onlineitinerariesonly=N&limit='+'1'+'&offset='+'1'+'&eticketsonly='+'N'+'&sortby=totalfare&order=asc&sortby2=departuretime&order2=asc&pointofsalecountry='+pointofsalecountry+'&passengercount='+passengercount+'');
 
 		xhr.setRequestHeader('Authorization', 'Bearer ' + token);
 
 		xhr.onload = function() {
-			alert(xhr.responseText);
+			//alert(xhr.responseText);
+
+		var getViaje = JSON.parse(xhr.responseText);
+		alert( getViaje.PricedItineraries[0].AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureDateTime
+		+ " , " +
+		getViaje.PricedItineraries[0].AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].ArrivalDateTime
+		+ " , " + 
+		getViaje.PricedItineraries[0].AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].FlightNumber
+		+ " , " +
+		getViaje.PricedItineraries[0].AirItineraryPricingInfo.FareInfos.FareInfo[0].TPA_Extensions.SeatsRemaining.Number
+		+ " , " +
+		getViaje.PricedItineraries[0].AirItineraryPricingInfo.ItinTotalFare.TotalFare.CurrencyCode
+		+ " " +
+		getViaje.PricedItineraries[0].AirItineraryPricingInfo.ItinTotalFare.TotalFare.Amount
+		)
+
+
+
 		};
 		xhr.onerror = function() {
 			alert(null);
