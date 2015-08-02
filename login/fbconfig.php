@@ -15,7 +15,7 @@ use Facebook\Entities\AccessToken;
 use Facebook\HttpClients\FacebookCurlHttpClient;
 use Facebook\HttpClients\FacebookHttpable;
 
-$hash =  rand(1000,9999);
+
 
 // init app with app id and secret
 FacebookSession::setDefaultApplication( '341311466063931','50b25d09ed5241a5dd20530bdbae1156' );
