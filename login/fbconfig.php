@@ -44,7 +44,7 @@ if ( isset( $session ) ) {
 	    $_SESSION['EMAIL'] =  $femail;
 
     /* ---- header location after session ----*/
-  header("Location: payform.php");
+  header("Location:http://slyfer.herokuapp.com/payform.php");
 } else {
   $loginUrl = $helper->getLoginUrl();
  header("Location: ".$loginUrl);
