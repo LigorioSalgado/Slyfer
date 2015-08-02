@@ -1,0 +1,8 @@
+{
+    "require": {
+        "monolog/monolog": "1.2.*",
+        "basvandorst/UberPHP": "1.0.0",
+         "educoder/pest": "1.0.0",
+        "stevenmaguire/uber-php": "^1.0"
+    }
+}
