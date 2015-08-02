@@ -2,7 +2,7 @@
 session_start();
 // added in v4.0.0
 require_once 'autoload.php';
-require_once 'dbconfig.php';
+
 use Facebook\FacebookSession;
 use Facebook\FacebookRedirectLoginHelper;
 use Facebook\FacebookRequest;
@@ -52,17 +52,6 @@ if ( isset( $session ) ) {
 }
 
 
-function checkuser($fuid,$ffname,$femail,$h){
-      $check = mysqli_query($link,"select * from users where FBID='$fuid'");
-    if (empty($check)) { // if new user . Insert a new record
-  $query = "INSERT INTO users (FBID,Nombre,Correo,clavecel) VALUES ('$fuid','$ffname','$femail','$h')";
-  mysqli_query($link,$query);
-  } else {   // If Returned user . update the user record
-  $query = "UPDATE users SET Nombre='$ffname', Correo='$femail' where FBID='$fuid'";
-  mysqli_query($link, $query);
-  }
-
-}
 
 
 
