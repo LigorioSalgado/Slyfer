@@ -26,12 +26,12 @@
 	    var pointofsalecountry = 'MX'// $('#pointofsalecountryTxt').val().toUpperCase()
        
 
-          origin = 'MEX'
+          /*origin = 'MEX'
     	  destination = 'LAX'
     	  departuredate = '2015-10-10'
     	  returndate = '2015-10-11'
     	  passengercount = '1'
-    	  pointofsalecountry = 'MX'
+    	  pointofsalecountry = 'MX'*/
 
     	var xhr = new XMLHttpRequest();
 		xhr.open('GET', 'https://api.test.sabre.com/v1/shop/flights?origin='+origin+'&destination='+destination+'&departuredate='+departuredate+'&returndate='+returndate+'&onlineitinerariesonly=N&limit='+'1'+'&offset='+'1'+'&eticketsonly='+'N'+'&sortby=totalfare&order=asc&sortby2=departuretime&order2=asc&pointofsalecountry='+pointofsalecountry+'&passengercount='+passengercount+'');
@@ -42,18 +42,45 @@
 			//alert(xhr.responseText);
 
 		var getViaje = JSON.parse(xhr.responseText);
-		alert( getViaje.PricedItineraries[0].AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureDateTime
+
+		var idaVuelo = getViaje.PricedItineraries[0].AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureDateTime
+		var vueltaVuelo = getViaje.PricedItineraries[0].AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].ArrivalDateTime
+		var noVuelo = getViaje.PricedItineraries[0].AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].FlightNumber
+		var asientos = getViaje.PricedItineraries[0].AirItineraryPricingInfo.FareInfos.FareInfo[0].TPA_Extensions.SeatsRemaining.Number
+		var currencyCode = getViaje.PricedItineraries[0].AirItineraryPricingInfo.ItinTotalFare.TotalFare.CurrencyCode
+		var costoFinal = getViaje.PricedItineraries[0].AirItineraryPricingInfo.ItinTotalFare.TotalFare.Amount
+		var codeAerolinea = getViaje.PricedItineraries[0].AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].MarketingAirline.Code
+
+		
+		//var aerolinea 
+	
+
+		alert( idaVuelo
 		+ " , " +
-		getViaje.PricedItineraries[0].AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].ArrivalDateTime
+		vueltaVuelo
 		+ " , " + 
-		getViaje.PricedItineraries[0].AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].FlightNumber
+		noVuelo
 		+ " , " +
-		getViaje.PricedItineraries[0].AirItineraryPricingInfo.FareInfos.FareInfo[0].TPA_Extensions.SeatsRemaining.Number
+		asientos
 		+ " , " +
-		getViaje.PricedItineraries[0].AirItineraryPricingInfo.ItinTotalFare.TotalFare.CurrencyCode
+		currencyCode
 		+ " " +
-		getViaje.PricedItineraries[0].AirItineraryPricingInfo.ItinTotalFare.TotalFare.Amount
+		costoFinal
+		+ " " +
+		codeAerolinea
+		
+
 		)
+
+
+		$.ajax({
+		    url: "https://api.test.sabre.com/v1/lists/utilities/airlines?airlinecode="+codeAerolinea+"",
+		    headers: {"Authorization": 'Bearer ' + token },
+		    success: function(result) {
+
+		    	alert('Aerolinea: ' + result.AirlineInfo[0].AirlineName); 
+		    }
+		});
 
 
 
