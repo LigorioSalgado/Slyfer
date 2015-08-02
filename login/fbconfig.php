@@ -42,9 +42,9 @@ if ( isset( $session ) ) {
 	    $_SESSION['FBID'] = $fbid;
         $_SESSION['FULLNAME'] = $fbfullname;
 	    $_SESSION['EMAIL'] =  $femail;
-      
+
     /* ---- header location after session ----*/
-  header("Location: ../payform.php");
+  header("Location: payform.php");
 } else {
   $loginUrl = $helper->getLoginUrl();
  header("Location: ".$loginUrl);
