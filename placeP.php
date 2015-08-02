@@ -28,7 +28,7 @@
 
     <style type="text/css">
 
-        .myButton {
+        .myButton, .myButton2 {
     -moz-box-shadow:inset 0px 1px 3px 0px #91b8b3;
     -webkit-box-shadow:inset 0px 1px 3px 0px #91b8b3;
     box-shadow:inset 0px 1px 3px 0px #91b8b3;
@@ -39,14 +39,12 @@
     background:-ms-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
     background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#768d87', endColorstr='#6c7c7c',GradientType=0);
-    background-color:#768d87;
     -moz-border-radius:5px;
     -webkit-border-radius:5px;
     border-radius:5px;
     border:1px solid #566963;
     display:inline-block;
     cursor:pointer;
-    color:#ffffff;
     font-family:Arial;
     font-size:15px;
     font-weight:bold;
@@ -54,7 +52,7 @@
     text-decoration:none;
     text-shadow:0px -1px 0px #2b665e;
     float: right;
-    width: 20em;
+    color: #000;
 }
 .myButton:hover {
     background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #6c7c7c), color-stop(1, #768d87));
@@ -64,12 +62,48 @@
     background:-ms-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
     background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#6c7c7c', endColorstr='#768d87',GradientType=0);
-    background-color:#6c7c7c;
 }
 .myButton:active {
     position:relative;
     top:1px;
 }
+
+.myButton{
+    background-color:#768d87;
+    width: 20em;
+}
+
+.myButton:hover{    
+    background-color:#6c7c7c;
+}
+
+.myButton2{
+    background-color:#44c767;
+    width: 10em;
+}
+
+.myButton2:hover{    
+    background-color:#5cbf2a;
+}
+
+.textbox{
+    border: 3px solid;
+    border-radius: 10px;
+    border-color: #48483C;
+    -webkit-box-shadow:
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1);
+    -moz-box-shadow:
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1);
+    box-shadow:
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1);
+    padding: 15px;
+    color: #CC0000;
+    margin: 0 0 10px 0;
+    font-size: 16px;
+  }
 
 
     </style>
@@ -322,16 +356,16 @@
 
                     <p>
 
-                        Fecha ida: <input type="text" id="datepicker" style="width:65px;">
-                        Fecha Regreso: <input type="text" id="datepickerFin" style="width:65px;">
+                        Fecha ida: <input type="text" id="datepicker" class="textbox" style="width:65px;">
+                        Fecha Regreso: <input type="text" id="datepickerFin" class="textbox" style="width:65px;">
 
                     </p>
 
 
-                    <p>Origen: <input type="text"  id ="origenTxt"  value ="MEX" style="width:65px;">
-                    <p>Destino <input type="text"  id ="destinationTxt" value="CDG"style="width:65px;">
-                    <p>Pasajeros: <input type="text" id ="passengercountTxt" style="width:65px;">
-                    <button type="button" onclick="consultarViaje()">Buscar</button>
+                    <p>Origen: <input type="text"  id ="origenTxt" class="textbox"  value ="MEX" style="width:65px;">
+                    <p>Destino <input type="text"  id ="destinationTxt" class="textbox" value="CDG"style="width:65px;">
+                    <p>Pasajeros: <input type="text" id ="passengercountTxt" class="textbox" style="width:65px;">
+                    <button type="button" onclick="consultarViaje()" class="myButton2">Buscar</button>
                     </p>
                     </p>
 
