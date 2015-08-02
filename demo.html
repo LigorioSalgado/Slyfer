@@ -14,14 +14,24 @@
     
     var token = 'T1RLAQKTXWFqC5zRHJP5mMcbTnZMNBluVhCypr5zSB0PlL+1BRE1UFa5AACg8sMWGZZmisrh45NMKfUYQ00iQMiM3GDE6L/xSit7g0tgkgtkPGfL5TvxfxtJRhiuaa0VDDe+LXkT9/AQZntwdnA2L7JCTv2oaYmyXKFgrE+xxrgN6zy/YRbHyFbM2oytQAQ20IWyYrZFunXFEY6mXNl40qwRkOL8aHWooeR2iHD9HRj4VQPtkhvgDvp7tj2nTrW0u2vt+fjal658L2zr3g**'
 
-    var origin = 'MEX'
-    var destination = 'LAX'
-    var departuredate = '2015-10-10'
-    var returndate = '2015-10-11'
-    var passengercount = '1'
-    var pointofsalecountry = 'MX'
 
     function consultarViaje(){
+    	
+    	var origin =  $('#origenTxt').val().toUpperCase()
+    	var destination = $('#destinationTxt').val().toUpperCase()
+	    var departuredate = $('#datepicker').val().toUpperCase()
+	    var returndate = $('#datepickerFin').val().toUpperCase()
+	    var passengercount = $('#passengercountTxt').val().toUpperCase()
+	    var pointofsalecountry = 'MX'// $('#pointofsalecountryTxt').val().toUpperCase()
+       
+
+        //  origin = 'MEX'
+    	 // destination = 'LAX'
+    	//  departuredate = '2015-10-10'
+    	 // returndate = '2015-10-11'
+    	  //passengercount = '1'
+    	  //pointofsalecountry = 'MX'
+
     	var xhr = new XMLHttpRequest();
 		xhr.open('GET', 'https://api.test.sabre.com/v1/shop/flights?origin='+origin+'&destination='+destination+'&departuredate='+departuredate+'&returndate='+returndate+'&onlineitinerariesonly=N&limit='+'2'+'&offset='+'1'+'&eticketsonly='+'N'+'&sortby=totalfare&order=asc&sortby2=departuretime&order2=asc&pointofsalecountry='+pointofsalecountry+'&passengercount='+passengercount+'');
 
@@ -63,68 +73,17 @@
 
 <p>Fecha Inicio: <input type="text" id="datepicker" style="width:65px;"> 
 
-		<select name="hora" id="hora" onchange="changeDate('hora',2)">
-	        <option value="1">1 am</option>
-	        <option value="2">2 am</option>
-	        <option value="3">3 am</option>
-	        <option value="4">4 am</option>
-	        <option value="5">5 am</option>
-	        <option value="6">6 am</option>
-	        <option value="7">7 am</option>
-	        <option value="8">8 am</option>
-	        <option value="9">9 am</option>
-	        <option value="10">10 am</option>
-	        <option value="11">11 am</option>
-	        <option value="12">12 pm</option>
-	        <option value="13">1 pm</option>
-	        <option value="14">2 pm</option>
-	        <option value="15">3 pm</option>
-	        <option value="16">4 pm</option>
-	        <option value="17">5 pm</option>
-	        <option value="18">6 pm</option>
-	        <option value="19">7 pm</option>
-	        <option value="20">8 pm</option>
-	        <option value="21">9 pm</option>
-	        <option value="22">10 pm</option>
-	        <option value="23">11 pm</option>
-	        <option value="0">12 am</option>
-     	</select>
-
+	
 
 	  Fecha Final: <input type="text" id="datepickerFin" style="width:65px;">
 
-	  	<select name="horaFin" id="horaFin" onchange="changeDate('horaFin',5)">
-	        <option value="1">1 am</option>
-	        <option value="2">2 am</option>
-	        <option value="3">3 am</option>
-	        <option value="4">4 am</option>
-	        <option value="5">5 am</option>
-	        <option value="6">6 am</option>
-	        <option value="7">7 am</option>
-	        <option value="8">8 am</option>
-	        <option value="9">9 am</option>
-	        <option value="10">10 am</option>
-	        <option value="11">11 am</option>
-	        <option value="12">12 pm</option>
-	        <option value="13">1 pm</option>
-	        <option value="14">2 pm</option>
-	        <option value="15">3 pm</option>
-	        <option value="16">4 pm</option>
-	        <option value="17">5 pm</option>
-	        <option value="18">6 pm</option>
-	        <option value="19">7 pm</option>
-	        <option value="20">8 pm</option>
-	        <option value="21">9 pm</option>
-	        <option value="22">10 pm</option>
-	        <option value="23">11 pm</option>
-	        <option value="0">12 am</option>
-      	</select>
-
+	  
 	</p>
 
-	<p>Origen: <input type="text" style="width:65px;">
-	<p>Destino <input type="text" style="width:65px;">
-	<p>Pasajeros: <input type="text" style="width:65px;">
+
+	<p>Origen: <input type="text"  id ="origenTxt" style="width:65px;">
+	<p>Destino <input type="text"  id ="destinationTxt" style="width:65px;">
+	<p>Pasajeros: <input type="text" id ="passengercountTxt" style="width:65px;">
 	<button type="button" onclick="consultarViaje()">Click Me!</button>
 
 
