@@ -11,20 +11,18 @@
    </head>
 <body>
     <script>
-      var departuredate = $( ".datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' }).val(); 
-    alert(departuredate)
-    var returndate = $( ".datepickerFin" ).datepicker({ dateFormat: 'yy-mm-dd' }).val(); 
-    
+     
     var token = 'T1RLAQKTXWFqC5zRHJP5mMcbTnZMNBluVhCypr5zSB0PlL+1BRE1UFa5AACg8sMWGZZmisrh45NMKfUYQ00iQMiM3GDE6L/xSit7g0tgkgtkPGfL5TvxfxtJRhiuaa0VDDe+LXkT9/AQZntwdnA2L7JCTv2oaYmyXKFgrE+xxrgN6zy/YRbHyFbM2oytQAQ20IWyYrZFunXFEY6mXNl40qwRkOL8aHWooeR2iHD9HRj4VQPtkhvgDvp7tj2nTrW0u2vt+fjal658L2zr3g**'
 
   
-    alert(departuredate)
     function consultarViaje(){
     	
     	var origin =  $('#origenTxt').val().toUpperCase()
     	var destination = $('#destinationTxt').val().toUpperCase()
-	     departuredate = $('#datepicker').val().toUpperCase()
-	     returndate = $('#datepickerFin').val().toUpperCase()
+	  var   departuredate = $('#datepicker').val().toUpperCase()
+	 var    returndate = $('#datepickerFin').val().toUpperCase()
+	 alert(departuredate)
+	 alert(returndate)
 	    var passengercount = $('#passengercountTxt').val().toUpperCase()
 	    var pointofsalecountry = 'MX'// $('#pointofsalecountryTxt').val().toUpperCase()
        
@@ -67,7 +65,7 @@
 	    $( "#datepickerFin" ).datepicker( {
 	    	onSelect: function(date) {
 	    		var dateSelecFin = new Date(date);
-	            returndate = dateSelec
+	            returndate = dateSelecFin
 	    	},
 	    	dateFormat: "yy-mm-dd"
 	    });
