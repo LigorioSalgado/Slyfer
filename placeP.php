@@ -263,7 +263,7 @@
                       $products = $client->products(19.442272,-99.203453);
                     //  print_r($products);
 
-                      $estimatesPrice = $client->estimatesPrice(19.442272,-99.203453,19.4326018,-99.1332049);
+                      $estimatesPrice = $client->estimatesPrice(19.4345888,-99.0695859,19.4848572,-99.1178616);
                       //  print_r($estimatesPrice);
                         $obj = json_decode($estimatesPrice);
 
