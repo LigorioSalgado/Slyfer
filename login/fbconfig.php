@@ -20,7 +20,7 @@ $hash =  rand(1000,9999);
 // init app with app id and secret
 FacebookSession::setDefaultApplication( '341311466063931','50b25d09ed5241a5dd20530bdbae1156' );
 // login helper with redirect_uri
-    $helper = new FacebookRedirectLoginHelper('http://local.host.com/Web/login/fbconfig.php' );
+    $helper = new FacebookRedirectLoginHelper('http://slyfer.herokuapp.com/login/fbconfig.php' );
 try {
   $session = $helper->getSessionFromRedirect();
 } catch( FacebookRequestException $ex ) {
@@ -45,7 +45,7 @@ if ( isset( $session ) ) {
       checkuser($fbid,$fbfullname,$femail,$hash);
 
     /* ---- header location after session ----*/
-  header("Location: index.php");
+  header("Location: ../payform.php");
 } else {
   $loginUrl = $helper->getLoginUrl();
  header("Location: ".$loginUrl);
