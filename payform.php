@@ -19,17 +19,17 @@
   }
   .textbox{
     border: 5px solid;
-    border-radius: 10px;    
-    border-color: #48483C; 
-    -webkit-box-shadow: 
+    border-radius: 10px;
+    border-color: #48483C;
+    -webkit-box-shadow:
       inset 0 0 8px  rgba(0,0,0,0.1),
-            0 0 16px rgba(0,0,0,0.1); 
-    -moz-box-shadow: 
+            0 0 16px rgba(0,0,0,0.1);
+    -moz-box-shadow:
       inset 0 0 8px  rgba(0,0,0,0.1),
-            0 0 16px rgba(0,0,0,0.1); 
-    box-shadow: 
+            0 0 16px rgba(0,0,0,0.1);
+    box-shadow:
       inset 0 0 8px  rgba(0,0,0,0.1),
-            0 0 16px rgba(0,0,0,0.1); 
+            0 0 16px rgba(0,0,0,0.1);
     padding: 15px;
     color: #CC0000;
     margin: 0 0 10px 0;
@@ -40,16 +40,16 @@
   .venc{
     border: 5px solid;
     border-radius: 10px;
-    border-color: #48483C; 
-    -webkit-box-shadow: 
+    border-color: #48483C;
+    -webkit-box-shadow:
       inset 0 0 8px  rgba(0,0,0,0.1),
-            0 0 16px rgba(0,0,0,0.1); 
-    -moz-box-shadow: 
+            0 0 16px rgba(0,0,0,0.1);
+    -moz-box-shadow:
       inset 0 0 8px  rgba(0,0,0,0.1),
-            0 0 16px rgba(0,0,0,0.1); 
-    box-shadow: 
+            0 0 16px rgba(0,0,0,0.1);
+    box-shadow:
       inset 0 0 8px  rgba(0,0,0,0.1),
-            0 0 16px rgba(0,0,0,0.1); 
+            0 0 16px rgba(0,0,0,0.1);
     padding: 15px;
     margin: 0 0 10px 0;
 
@@ -100,7 +100,7 @@
         <i class="fa fa-cc-mastercard fa-stack-1x text-primary" style="font-size:30em; z-index:-9; color:#FF9900;"></i>
 
         <form  name="payform" method="post" action="pagos.php" align="center">
-        
+
             <input type= "text" name="nombre" class="textbox" placeholder="Name"/>
             <input type= "text" name="apellidos" class="textbox" placeholder="First Name"/><br>
             <input type= "text" name="direccion" class="textbox" placeholder="Adress"/><br>
@@ -109,9 +109,9 @@
             <input type= "text" name="numtarj" class="textbox" placeholder="Card Number"/>
 
             <br>
-        
+
               <label>Month of Expiration</label>
-        
+
             <select name="mesv" class="venc">
               <option value=01>01</option>
               <option value=02>02</option>
@@ -122,14 +122,14 @@
               <option value=07>07</option>
               <option value=08>08</option>
               <option value=09>09</option>
-              <option value=10>010</option>
+              <option value=10>10</option>
               <option value=11>11</option>
               <option value=12>12</option>
             </select >
 
         <label>Year of Expiration</label>
-          <select name="añov"  class="venc">
-            <option value=16>16</option>
+          <select name="aniov"  class="venc">
+            <option value=15>16</option>
             <option value=17>17</option>
             <option value=18>18</option>
             <option value=19>19</option>
@@ -137,7 +137,8 @@
           </select >
 
         <input type= "text" name="cs" placeholder="Security Code"  class="textbox"/>
-          <input type="hidden" name="concepto"  class="textbox"/>
+          <input type="hidden" name="concepto"  class="textbox" value="Paquete paris"/>
+          <input type="hidden" name="total" value=500 />
 
         <?php echo $total ?>
 
@@ -147,7 +148,7 @@
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
 
 
-        
+
         <!-- Modal -->
         <div id="myModal" class="modal fade" role="dialog">
           <div class="modal-dialog">
