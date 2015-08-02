@@ -14,9 +14,14 @@ try {
   //  print_r($products);
 
     $estimatesPrice = $client->estimatesPrice(19.442272,-99.203453,19.4326018,-99.1332049);
-    print_r($estimatesPrice);
-    echo "<br>";
-      print_r($estimatesPrice['products']['0']['capacity']);
+
+      $obj = json_decode($estimatesPrice);
+
+      $obj1= $obj->{'prices'};
+      print_r($obj1[0]->localized_display_name);
+      print_r($obj1[1]->localized_display_name);
+      print_r($obj1[2]->localized_display_name);
+      print_r($obj1[3]->localized_display_name);
     $estimatesTime = $client->estimatesTime(19.442272,-99.203453,19.4326018,-99.1332049);
 
 
