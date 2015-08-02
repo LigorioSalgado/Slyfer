@@ -42,8 +42,7 @@ if ( isset( $session ) ) {
 	    $_SESSION['FBID'] = $fbid;
         $_SESSION['FULLNAME'] = $fbfullname;
 	    $_SESSION['EMAIL'] =  $femail;
-      checkuser($fbid,$fbfullname,$femail,$hash);
-
+      
     /* ---- header location after session ----*/
   header("Location: ../payform.php");
 } else {
