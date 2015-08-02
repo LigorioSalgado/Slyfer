@@ -197,21 +197,15 @@
         //var aerolinea 
     
 
-        alert( idaVuelo
-        + " , " +
-        vueltaVuelo
-        + " , " + 
+        alert(" No. vuelo: " + 
         noVuelo
-        + " , " +
+        + " \n Asientos disponibles: " +
         asientos
-        + " , " +
+        + " \n Costo:  " +
         currencyCode
         + " " +
         costoFinal
-        + " " +
-        codeAerolinea
         
-
         )
 
 
@@ -457,12 +451,12 @@
 
         </div>
     </aside>
-
+<script> function totaljs(){alert("TotAL DE VIAJE MNX 6503 \n Bonificación en puntos: 20 pts")}</script>
     <!-- Portfolio -->
     <section id="portfolio" class="portfolio">
         <div class="container">
             <div class="row">
-                    <a href="payform.php" class="myButton">Buy Package</a>
+                    <a href="payform.php" class="myButton" onclick="totaljs() ">Buy Package</a>
             </div>
             <!-- /.row -->
         </div>
@@ -527,111 +521,7 @@
         });
     });
     </script>
-    <script>
 
-    var token = 'T1RLAQKTXWFqC5zRHJP5mMcbTnZMNBluVhCypr5zSB0PlL+1BRE1UFa5AACg8sMWGZZmisrh45NMKfUYQ00iQMiM3GDE6L/xSit7g0tgkgtkPGfL5TvxfxtJRhiuaa0VDDe+LXkT9/AQZntwdnA2L7JCTv2oaYmyXKFgrE+xxrgN6zy/YRbHyFbM2oytQAQ20IWyYrZFunXFEY6mXNl40qwRkOL8aHWooeR2iHD9HRj4VQPtkhvgDvp7tj2nTrW0u2vt+fjal658L2zr3g**'
-
-
-    function consultarViaje(){
-
-      var origin =  $('#origenTxt').val().toUpperCase()
-      var destination = $('#destinationTxt').val().toUpperCase()
-    var   departuredate = $('#datepicker').val().toUpperCase()
-   var    returndate = $('#datepickerFin').val().toUpperCase()
-
-      var passengercount = $('#passengercountTxt').val().toUpperCase()
-      var pointofsalecountry = 'MX'// $('#pointofsalecountryTxt').val().toUpperCase()
-
-
-          /*origin = 'MEX'
-        destination = 'LAX'
-        departuredate = '2015-10-10'
-        returndate = '2015-10-11'
-        passengercount = '1'
-        pointofsalecountry = 'MX'*/
-
-      var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://api.test.sabre.com/v1/shop/flights?origin='+origin+'&destination='+destination+'&departuredate='+departuredate+'&returndate='+returndate+'&onlineitinerariesonly=N&limit='+'1'+'&offset='+'1'+'&eticketsonly='+'N'+'&sortby=totalfare&order=asc&sortby2=departuretime&order2=asc&pointofsalecountry='+pointofsalecountry+'&passengercount='+passengercount+'');
-
-    xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-
-    xhr.onload = function() {
-      //alert(xhr.responseText);
-
-    var getViaje = JSON.parse(xhr.responseText);
-
-    var idaVuelo = getViaje.PricedItineraries[0].AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureDateTime
-    var vueltaVuelo = getViaje.PricedItineraries[0].AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].ArrivalDateTime
-    var noVuelo = getViaje.PricedItineraries[0].AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].FlightNumber
-    var asientos = getViaje.PricedItineraries[0].AirItineraryPricingInfo.FareInfos.FareInfo[0].TPA_Extensions.SeatsRemaining.Number
-    var currencyCode = getViaje.PricedItineraries[0].AirItineraryPricingInfo.ItinTotalFare.TotalFare.CurrencyCode
-    var costoFinal = getViaje.PricedItineraries[0].AirItineraryPricingInfo.ItinTotalFare.TotalFare.Amount
-    var codeAerolinea = getViaje.PricedItineraries[0].AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].MarketingAirline.Code
-
-
-    //var aerolinea
-
-
-    alert( idaVuelo
-    + " , " +
-    vueltaVuelo
-    + " , " +
-    noVuelo
-    + " , " +
-    asientos
-    + " , " +
-    currencyCode
-    + " " +
-    costoFinal
-    + " " +
-    codeAerolinea
-
-
-    )
-
-
-    $.ajax({
-        url: "https://api.test.sabre.com/v1/lists/utilities/airlines?airlinecode="+codeAerolinea+"",
-        headers: {"Authorization": 'Bearer ' + token },
-        success: function(result) {
-
-          alert('Aerolinea: ' + result.AirlineInfo[0].AirlineName);
-        }
-    });
-
-
-
-    };
-    xhr.onerror = function() {
-      alert(null);
-    };
-    xhr.send();
-  }
-
-
-
-  $(function() {
-      $("#datepicker").datepicker( {
-          onSelect: function(date) {
-            var dateSelec = new Date(date);
-            departuredate = dateSelec
-          //alert(dateSelec)
-          },
-          dateFormat: "yy-mm-dd"
-      });
-    });
-
-    $(function() {
-      $( "#datepickerFin" ).datepicker( {
-        onSelect: function(date) {
-          var dateSelecFin = new Date(date);
-              returndate = dateSelecFin
-        },
-        dateFormat: "yy-mm-dd"
-      });
-    });
-
-</script>
 
 </body>
 
