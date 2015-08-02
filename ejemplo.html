@@ -1,0 +1,21 @@
+<html>
+
+<script>
+
+var xhr = new XMLHttpRequest();
+	xhr.open('GET', 'https://api.sabre.com/v1/lists/supported/shop/themes');
+	xhr.setRequestHeader('Authorization', 'Bearer ' + 'T1RLAQKTXWFqC5zRHJP5mMcbTnZMNBluVhCypr5zSB0PlL+1BRE1UFa5AACg8sMWGZZmisrh45NMKfUYQ00iQMiM3GDE6L/xSit7g0tgkgtkPGfL5TvxfxtJRhiuaa0VDDe+LXkT9/AQZntwdnA2L7JCTv2oaYmyXKFgrE+xxrgN6zy/YRbHyFbM2oytQAQ20IWyYrZFunXFEY6mXNl40qwRkOL8aHWooeR2iHD9HRj4VQPtkhvgDvp7tj2nTrW0u2vt+fjal658L2zr3g**');
+	xhr.onload = function() {
+		alert(xhr.responseText);
+	};
+	xhr.onerror = function() {
+		alert(null);
+	};
+	xhr.send();
+
+</script>
+
+
+
+
+</html>
