@@ -166,7 +166,7 @@
         <!-- /.container -->
     </section>
 
-    <!-- Services -->
+ 
     <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
     <section id="services" class="services bg-primaryPlace">
         <div class="container">
